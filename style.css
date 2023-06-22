@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --clr-primary-1: hsl(300, 69%, 71%);
+    --clr-primary-2: hsl(257, 40%, 49%);
+    --clr-neutral: hsl(0, 0%, 100%);
+
+    --ff-body: 'Open Sans', sans-serif;
+    --ff-headings: 'Poppins', sans-serif;
+}
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    list-style: none;
+}
+
+picture,
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    gap: 1rem;
+    background-color: var(--clr-primary-2);
+    background-image: url(images/bg-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding: 0 10%;
+    font-family: var(--ff-body);
+}
+
+.sr-only {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    color: var(--clr-neutral);
+}
+
+/* ---------- HEADER ---------- */
+header {
+    display: grid;
+    align-content: center;
+}
+
+h1 {
+    width: min(45%, 12rem);
+    transition: 0.25s;
+}
+
+h1:hover {
+    transform: rotate(-2deg) scale(1.2);
+}
+
+/* ---------- MAIN ---------- */
+main {
+    display: grid;
+    place-content: center;
+    justify-self: center;
+    gap: 4rem;
+}
+
+.mockups {
+    width: min(100%, 30rem);
+    justify-self: center;
+}
+
+.info {
+    display: grid;
+    gap: 0.8rem;
+    text-align: center;
+    color: var(--clr-neutral);
+    line-height: 1.5;
+}
+
+.title {
+    font-family: var(--ff-headings);
+    font-size: clamp(1rem, 6.5vw, 2rem);
+}
+
+.title span {
+    display: block;
+}
+
+.description {
+    font-size: clamp(0.8rem, 4.5vw, 1rem);
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    justify-self: center;
+    background-color: var(--clr-neutral);
+    padding: 0.75rem 5rem;
+    border-radius: 3rem;
+    font-family: var(--ff-headings);
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    color: var(--clr-primary-2);
+    text-decoration: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    transition: 0.25s;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-neutral);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.icons-list {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: end;
+}
+
+.icon a {
+    display: grid;
+    place-content: center;
+    border: 0.12rem solid var(--clr-neutral);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    color: var(--clr-neutral);
+    text-decoration: none;
+}
+
+.icon:hover a,
+.icon:focus-visible a {
+    color: var(--clr-primary-1);
+    border: 0.15rem solid var(--clr-primary-1);
+}
+
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--clr-neutral);
+}
+
+.attribution a {
+    color: var(--clr-neutral);
+}
+
+@media screen and (min-width: 40rem) {
+    main {
+        gap: 2rem;
+    }
+
+    .icons-list {
+        justify-content: end;
+        align-items: start;
+        gap: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ---------- Desktop ---------- */
+@media screen and (min-width: 65rem) {
+    body {
+        background-image: url(images/bg-desktop.svg);
+        background-size: auto 100%;
+        padding: 1rem 5%;
+        grid-template-rows: 16vh auto 8.5vh;
+    }
+
+    h1 {
+        width: clamp(12rem, 16.5%, 20rem);
+    }
+
+    .mockups {
+        width: min(100%, 45rem);
+    }
+
+    main {
+        grid-template-columns: 1.33fr 1fr;
+        gap: 3.3rem;
+        padding-top: 2rem;
+        max-width: 100rem;
+    }
+
+    .info {
+        align-content: start;
+        gap: 1.25rem;
+        text-align: left;
+        padding: 2.7rem 0.75rem 0 0;
+    }
+
+    .title {
+        font-size: clamp(2rem, 2.78vw, 3rem);
+    }
+
+    .description {
+        font-size: clamp(1rem, 1.25vw, 1.25rem);
+        margin-bottom: 0.25rem;
+    }
+
+    .btn {
+        justify-self: start;
+        padding: 0.9rem 4rem;
+        font-size: 1.12rem;
+    }
+
+    .icon a {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .icon:nth-child(3) a {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 65rem) and (min-height: 50rem) {
+    .attribution {
+        position: fixed;
+        bottom: 0.5rem;
+        justify-self: center;
+    }
+}
